@@ -1,11 +1,11 @@
 {
-  "name": "Example Plugin",
-  "author": "John Doe",
+  "name": "AirDecky",
+  "author": "xXJSONDeruloXx",
   "flags": ["debug", "_root"],
   "api_version": 1,
   "publish": {
-    "tags": ["template", "root"],
-    "description": "Decky example plugin.",
+    "tags": ["airplay", "streaming", "screen-mirroring"],
+    "description": "Stream your Steam Deck screen to AirPlay devices like Apple TV.",
     "image": "https://opengraph.githubassets.com/1/SteamDeckHomebrew/PluginLoader"
   }
 }

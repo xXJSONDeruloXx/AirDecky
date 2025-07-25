@@ -1,0 +1,60 @@
+.airdecky-device-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.airdecky-device-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.airdecky-device-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.airdecky-device-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.airdecky-device-model {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.airdecky-status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.airdecky-status-indicator.streaming {
+  background-color: #4CAF50;
+  box-shadow: 0 0 4px rgba(76, 175, 80, 0.5);
+}
+
+.airdecky-status-indicator.idle {
+  background-color: #757575;
+}
+
+.airdecky-empty-state {
+  text-align: center;
+  opacity: 0.7;
+  padding: 20px;
+  font-style: italic;
+}
+
+.airdecky-scanning {
+  animation: pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}

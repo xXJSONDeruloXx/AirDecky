@@ -1,14 +1,10 @@
-# This is the default target, which will be built when 
-# you invoke make
-.PHONY: all
-all: hello
+.PHONY: all clean install-deps
 
-# This rule tells make how to build hello from hello.cpp
-hello:
+all: install-deps
+
+install-deps:
 	mkdir -p ./out
-	gcc -o ./out/hello ./src/main.c 
+	echo "Python dependencies will be installed by Decky runtime"
 
-# This rule tells make to delete hello and hello.o
-.PHONY: clean 
 clean:
-	rm -f hello
+	rm -rf ./out
