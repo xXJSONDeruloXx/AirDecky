@@ -25,6 +25,7 @@ interface AirPlayDevice {
 interface StreamingStatus {
   streaming: boolean;
   connected_device: string | null;
+  dependencies_available: boolean;
 }
 
 const discoverDevices = callable<[], AirPlayDevice[]>("discover_devices");
@@ -53,8 +54,6 @@ const PinEntryModal = ({ device, onPair, onCancel }: {
         label="PIN"
         value={pin}
         onChange={(e: any) => setPin(e.target.value)}
-        placeholder="Enter 4-digit PIN"
-        maxLength={4}
       />
     </ConfirmModal>
   );
@@ -88,7 +87,11 @@ const DeviceListItem = ({ device, onConnect, onPair }: {
 
 function Content() {
   const [devices, setDevices] = useState<AirPlayDevice[]>([]);
-  const [streamingStatus, setStreamingStatus] = useState<StreamingStatus>({ streaming: false, connected_device: null });
+  const [streamingStatus, setStreamingStatus] = useState<StreamingStatus>({ 
+    streaming: false, 
+    connected_device: null,
+    dependencies_available: false
+  });
   const [isScanning, setIsScanning] = useState(false);
   const [selectedDevice, setSelectedDevice] = useState<AirPlayDevice | null>(null);
   const [showPinModal, setShowPinModal] = useState(false);
@@ -229,6 +232,21 @@ function Content() {
             )}
           </div>
         </PanelSectionRow>
+        
+        {!streamingStatus.dependencies_available && (
+          <PanelSectionRow>
+            <div style={{ 
+              textAlign: "center", 
+              padding: "10px", 
+              backgroundColor: "#FFF3CD", 
+              color: "#856404",
+              borderRadius: "4px",
+              fontSize: "12px"
+            }}>
+              ⚠️ Dependencies installing in background. Full functionality will be available shortly.
+            </div>
+          </PanelSectionRow>
+        )}
       </PanelSection>
 
       <PanelSection title="Available Devices">
